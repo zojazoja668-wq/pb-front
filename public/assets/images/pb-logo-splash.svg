@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Logo/App Icon</title>
+    <g id="Logo/App-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Background" fill="#FFCC00" x="0" y="0" width="40" height="40" rx="6"></rect>
+        <g id="PB" transform="translate(5.000000, 10.000000)">
+            <path d="M11.7640559,0.325385461 L24,0 C14.5078017,5.74985993 11.3150867,14.5705451 10.5194659,20 L0,20 C0.771473883,14.0488493 5.52760014,4.18643259 11.7640559,0.325385461" id="Fill-5" fill="#173568"></path>
+            <path d="M30,8 C25.0086487,11.1488007 23.548496,16.1061346 23.244737,18 L20,18 C20.5615323,14.6669497 22.6456567,10.349395 25.723748,8.08363405 C25.7494832,8.06452982 30,8 30,8" id="Fill-6" fill="#173568"></path>
+            <path d="M20.7151886,5.20642532 L28,5 C22.0204585,8.18574682 19.0406675,14.8723328 18.5400161,19 L13,19 C13.4690489,15.6149604 15.7652261,8.95187006 20.7151886,5.20642532" id="Fill-7" fill="#D7232D"></path>
+        </g>
+    </g>
+</svg>

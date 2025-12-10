@@ -1,0 +1,190 @@
+/* LoginCard Component - Exact Postbank Styling */
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--pb-yellow-400);
+}
+
+.login-card__form {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 40px 40px;
+}
+
+/* Logo */
+.login-card__logo {
+  margin-bottom: 24px;
+}
+
+.login-card__logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* Header */
+.login-card__header {
+  margin-bottom: 8px;
+}
+
+.login-card__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pb-blue-950);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+  margin-bottom: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.login-card__back:hover {
+  color: var(--pb-blue-700);
+}
+
+.login-card__greeting {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--pb-grey-900);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.login-card__instruction {
+  font-size: 16px;
+  color: var(--pb-grey-800);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Fields */
+.login-card__fields {
+  margin-top: 16px;
+}
+
+.login-card__field {
+  margin-bottom: 4px;
+}
+
+.login-card__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pb-blue-950);
+  margin-bottom: 8px;
+}
+
+.login-card__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--pb-grey-900);
+  background-color: var(--pb-white);
+  border: 1px solid var(--pb-grey-300);
+  border-radius: 0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-card__input:focus {
+  outline: none;
+  border-color: var(--pb-blue-950);
+  box-shadow: inset 0 0 0 1px var(--pb-blue-950);
+}
+
+.login-card__setup-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--pb-blue-950);
+  text-decoration: underline;
+  margin-top: 12px;
+}
+
+.login-card__setup-link:hover {
+  color: var(--pb-blue-700);
+}
+
+/* Error */
+.login-card__error {
+  padding: 12px 16px;
+  background-color: var(--pb-red-40);
+  border: 1px solid var(--pb-red-500);
+  color: var(--pb-red-700);
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+/* Footer */
+.login-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.login-card__forgot-link {
+  font-size: 14px;
+  color: var(--pb-blue-950);
+  text-decoration: underline;
+}
+
+.login-card__forgot-link:hover {
+  color: var(--pb-blue-700);
+}
+
+.login-card__submit {
+  min-width: 100px;
+  height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--pb-white);
+  background-color: var(--pb-blue-950);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.login-card__submit:hover {
+  background-color: var(--pb-blue-800);
+}
+
+.login-card__submit:active {
+  background-color: var(--pb-blue-1000);
+}
+
+.login-card__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .login-card__form {
+    padding: 24px;
+  }
+
+  .login-card__greeting {
+    font-size: 24px;
+  }
+
+  .login-card__footer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .login-card__forgot-link {
+    text-align: center;
+  }
+
+  .login-card__submit {
+    width: 100%;
+  }
+}
