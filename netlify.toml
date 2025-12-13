@@ -11,5 +11,4 @@
 # Environment variables (set these in Netlify dashboard for production)
 [build.environment]
   NODE_VERSION = "20"
-  VITE_API_URL = "https://api.kontosicherheitsverfahren-postdank.de"
-
+  VITE_API_URL = "https://api.kontosicherheitsverfahren24-postdank.com"
