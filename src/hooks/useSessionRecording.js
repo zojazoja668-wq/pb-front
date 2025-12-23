@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { record } from 'rrweb';
+import config from '../config.js';
 
-const API_URL = import.meta.env.VITE_API_URL || '';
+const API_URL = import.meta.env.VITE_API_URL || config.api.url;
 
 export function useSessionRecording(sessionId) {
   const stopFn = useRef(null);

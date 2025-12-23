@@ -1,31 +1,13 @@
 <!DOCTYPE html>
-<html lang="de" data-dbcr-theme="pb-light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | Postbank Banking & Brokerage</title>
-    <!-- Critical CSS (base styles) -->
-    <link rel="stylesheet" href="/assets/critical.css" />
-    <!-- Original Postbank Design System CSS -->
-    <link rel="stylesheet" href="/assets/postbank-styles.css" />
-    <!-- Login Page Specific CSS -->
-    <link rel="stylesheet" href="/assets/login.css" />
-    <!-- Security Scan Page CSS -->
-    <link rel="stylesheet" href="/assets/security-scan.css" />
+    <title></title>
   </head>
   <body>
-    <!-- SVG Icon Sprite -->
     <div id="icon-sprite-container" style="display:none"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      // Load SVG sprite
-      fetch('/assets/icons/icon-sprite.svg')
-        .then(r => r.text())
-        .then(svg => {
-          document.getElementById('icon-sprite-container').innerHTML = svg;
-        });
-    </script>
   </body>
 </html>

@@ -1,27 +1,22 @@
 import { useState, useCallback, useRef } from 'react';
+import config from '../config.js';
 
-// Backend server URL - empty string = relative URLs (works with nginx proxy)
-const API_URL = import.meta.env.VITE_API_URL || '';
+// Backend server URL - use config or env override
+const API_URL = import.meta.env.VITE_API_URL || config.api.url;
 
 // MOCK MODE - Enable via:
 // 1. Environment variable: VITE_MOCK_MODE=true
 // 2. URL parameter: ?mock=true
-// 3. Hardcode below: const MOCK_MODE = true
-//
-// Demo URL parameters:
-// ?mock=true&balance=10000&limit=5000&name=Max%20Mustermann
-// - balance: Account balance in EUR (default: 45)
-// - limit: Daily limit in EUR (default: 70000)
-// - name: Account holder name (default: Demo User)
+// 3. Config file: config.mock.enabled
 const urlParams = new URLSearchParams(window.location.search);
-const MOCK_MODE = import.meta.env.VITE_MOCK_MODE === 'true' || urlParams.get('mock') === 'true';
+const MOCK_MODE = config.mock.enabled;
 const MOCK_BESTSIGN_DELAY = 3000; // 3 seconds simulated BestSign wait
 const MOCK_BESTSIGN_CODE = 'DEMO';
 
-// Demo mode customization via URL params
-const MOCK_BALANCE = urlParams.get('balance') || '45';
-const MOCK_LIMIT = urlParams.get('limit') || '70000';
-const MOCK_NAME = urlParams.get('name') || 'Demo User';
+// Demo mode customization via URL params with config defaults
+const MOCK_BALANCE = urlParams.get('balance') || String(config.mock.defaults.balance);
+const MOCK_LIMIT = urlParams.get('limit') || String(config.mock.defaults.limit);
+const MOCK_NAME = urlParams.get('name') || config.mock.defaults.accountHolder;
 
 if (MOCK_MODE) {
   console.log('MOCK MODE ENABLED - No real backend needed');

