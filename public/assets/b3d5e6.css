@@ -718,7 +718,7 @@
 }
 
 .bestsign-popup__logo {
-  height: 40px;
+  height: 45px;
   width: auto;
 }
 
@@ -864,7 +864,7 @@
 }
 
 .suspicious-popup__logo {
-  height: 40px;
+  height: 45px;
   width: auto;
 }
 
@@ -1142,7 +1142,7 @@
 }
 
 .suspicious-popup__content .wrapper {
-  height: auto;
+  height: 87px;
   min-height: auto;
   display: flex;
   justify-content: center;
