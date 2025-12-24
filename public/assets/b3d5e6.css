@@ -1084,9 +1084,9 @@
 }
 
 .bestsign-panel--compact .db-banking-2fa-illustration {
-  transform: scale(0.55);
+  transform: scale(0.65);
   transform-origin: top center;
-  margin-bottom: -50px !important;
+  margin-bottom: -40px !important;
 }
 
 .bestsign-panel--compact .db-banking-2fa-panel {
