@@ -1167,7 +1167,9 @@
 }
 
 .suspicious-popup__content .db-banking-2fa-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #f8f8f8;
   border: 1px solid #e0e0e0;
   padding: 12px 40px;
@@ -1208,6 +1210,12 @@
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid #e0e0e0;
+}
+
+/* Hide divider lines in popup on mobile */
+.suspicious-popup__content .db-banking-2fa-action-bar__divider,
+.suspicious-popup__content .db-banking-2fa-action-bar-item-divider {
+  display: none;
 }
 
 /* Hide spinner in popup */
