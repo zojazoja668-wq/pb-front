@@ -43,6 +43,15 @@ function BestSignPanel({
           </div>
         </div>
         
+        {/* BestSign Code Pill - positioned to overlap phone */}
+        <div className="db-banking-2fa-pill-wrapper">
+          <div className="d-flex justify-content-center">
+            <div className="db-banking-2fa-pill db-text--mute">
+              <span className="mx-5 mx-md-6">{code}</span>
+            </div>
+          </div>
+        </div>
+
         {/* Content Panel */}
         <div className="db-banking-2fa-panel">
           <div className="db-banking-2fa-panel__content">
@@ -54,15 +63,6 @@ function BestSignPanel({
               <p className="d-block mt-3 db-text--mute color-text-primary mx-auto text-center w-100">
                 {subtitle}
               </p>
-            </div>
-            
-            {/* BestSign Code Pill */}
-            <div>
-              <div className="d-flex justify-content-center">
-                <div className="db-banking-2fa-pill db-text--mute">
-                  <span className="mx-5 mx-md-6">{code}</span>
-                </div>
-              </div>
             </div>
             
             {/* Loading Spinner */}
