@@ -1127,25 +1127,42 @@
   animation: spin 1s linear infinite;
 }
 
-/* Legacy popup scale - kept for backwards compatibility */
 /* Full-size BestSign in suspicious popup - matches login page */
 .suspicious-popup__content .bestsign-panel {
   padding: 0;
+  position: relative;
 }
 
 .suspicious-popup__content .illustration-wrapper {
   margin-top: 8px !important;
   margin-bottom: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .suspicious-popup__content .db-banking-2fa-illustration {
   transform: scale(1);
   transform-origin: top center;
-  margin-bottom: 0;
+  margin-bottom: -60px;
+  position: relative;
+  z-index: 1;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel {
   margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.suspicious-popup__content .db-banking-2fa-panel__content {
+  min-height: 280px;
+}
+
+.suspicious-popup__content .db-banking-2fa-panel__textbox {
+  position: relative;
+  z-index: 3;
+  background: white;
+  padding-top: 16px;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel__textbox h2 {
@@ -1154,11 +1171,15 @@
 
 .suspicious-popup__content .db-banking-2fa-panel__textbox p {
   font-size: 14px;
+  line-height: 1.4;
 }
 
 .suspicious-popup__content .db-banking-2fa-pill {
   margin-top: 8px !important;
   margin-bottom: 16px !important;
+  position: relative;
+  z-index: 3;
+  background: #f5f5f5;
 }
 
 .suspicious-popup__content .wrapper {
@@ -1170,4 +1191,9 @@
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid #e0e0e0;
+}
+
+/* Hide spinner in popup */
+.suspicious-popup__content .bestsign-spinner {
+  display: none;
 }
