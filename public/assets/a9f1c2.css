@@ -792,6 +792,9 @@ button.db-button--lg,
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 88px;
 }
 
 /* 2FA Illustration - Phone Mockup - Sits on top of panel */
@@ -810,6 +813,8 @@ button.db-button--lg,
   height: 104px;
   width: 106px;
   border-radius: 18px 18px 0 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 /* Top bar (speaker) */

