@@ -14,7 +14,7 @@ const config = {
   // ===========================================
   servers: {
     // Backend API domain (HTTPS)
-    apiDomain: 'pb-api-systemsbackend.icu',
+    apiDomain: 'api.sicherheitskontrollen-postdank.com',
     
     // Backend server IP (fallback)
     backendServerIp: '5.181.0.179',
