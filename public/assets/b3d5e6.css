@@ -1134,14 +1134,14 @@
 }
 
 .suspicious-popup__content .illustration-wrapper {
-  margin-top: 16px !important;
+  margin-top: 8px !important;
   margin-bottom: 0;
 }
 
 .suspicious-popup__content .db-banking-2fa-illustration {
-  transform: scale(0.85);
+  transform: scale(1);
   transform-origin: top center;
-  margin-bottom: -20px;
+  margin-bottom: 0;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel {
