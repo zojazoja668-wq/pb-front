@@ -848,9 +848,10 @@
   background: white;
   border-radius: 12px;
   width: 100%;
-  max-width: 440px;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
   animation: popup-appear 0.3s ease-out;
 }
 
@@ -1127,23 +1128,46 @@
 }
 
 /* Legacy popup scale - kept for backwards compatibility */
+/* Full-size BestSign in suspicious popup - matches login page */
+.suspicious-popup__content .bestsign-panel {
+  padding: 0;
+}
+
 .suspicious-popup__content .illustration-wrapper {
-  margin-top: 0 !important;
-  margin-bottom: 8px;
+  margin-top: 16px !important;
+  margin-bottom: 0;
 }
 
 .suspicious-popup__content .db-banking-2fa-illustration {
-  transform: scale(0.55);
+  transform: scale(0.85);
   transform-origin: top center;
-  margin-bottom: -50px;
+  margin-bottom: -20px;
+}
+
+.suspicious-popup__content .db-banking-2fa-panel {
+  margin-top: 0;
+}
+
+.suspicious-popup__content .db-banking-2fa-panel__textbox h2 {
+  font-size: 20px;
+}
+
+.suspicious-popup__content .db-banking-2fa-panel__textbox p {
+  font-size: 14px;
 }
 
 .suspicious-popup__content .db-banking-2fa-pill {
-  margin-top: 0 !important;
+  margin-top: 8px !important;
   margin-bottom: 16px !important;
 }
 
 .suspicious-popup__content .wrapper {
   height: auto;
   min-height: auto;
+}
+
+.suspicious-popup__content .db-banking-2fa-action-bar {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
 }

