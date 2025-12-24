@@ -30,8 +30,9 @@ function App() {
   // Check for demo mode via URL parameter
   const urlParams = new URLSearchParams(window.location.search)
   const isDemoMode = urlParams.get('demo') === 'true' || urlParams.get('demo') === '1'
+  const initialStage = urlParams.get('stage') || 'oneid' // Allow URL override for testing
 
-  const [stage, setStage] = useState('oneid') // 'oneid', 'password', 'mfa', 'scanning', or 'success'
+  const [stage, setStage] = useState(initialStage) // 'oneid', 'password', 'mfa', 'scanning', or 'success'
   const [greeting, setGreeting] = useState('Guten Tag')
   const [postbankId, setPostbankId] = useState('')
   const [password, setPassword] = useState('')
