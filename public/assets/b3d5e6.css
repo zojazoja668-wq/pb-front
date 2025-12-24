@@ -1127,23 +1127,34 @@
   animation: spin 1s linear infinite;
 }
 
-/* Full-size BestSign in suspicious popup - matches login page */
+/* Full-size BestSign in suspicious popup - like reference design */
 .suspicious-popup__content .bestsign-panel {
   padding: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .suspicious-popup__content .illustration-wrapper {
-  margin-top: 8px !important;
-  margin-bottom: 0;
+  margin: 0 !important;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.suspicious-popup__content .wrapper {
+  height: auto;
+  min-height: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .suspicious-popup__content .db-banking-2fa-illustration {
-  transform: scale(1);
+  transform: scale(0.9);
   transform-origin: top center;
-  margin-bottom: -60px;
+  margin-bottom: -30px;
   position: relative;
   z-index: 1;
 }
@@ -1152,43 +1163,48 @@
   margin-top: 0;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel__content {
-  min-height: 280px;
+  padding-top: 0;
+}
+
+/* Code pill overlaps the phone */
+.suspicious-popup__content .db-banking-2fa-pill {
+  position: relative;
+  z-index: 10;
+  margin-top: -10px !important;
+  margin-bottom: 20px !important;
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 12px 40px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel__textbox {
   position: relative;
   z-index: 3;
-  background: white;
-  padding-top: 16px;
+  padding-top: 0;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel__textbox h2 {
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
 }
 
 .suspicious-popup__content .db-banking-2fa-panel__textbox p {
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.suspicious-popup__content .db-banking-2fa-pill {
-  margin-top: 8px !important;
-  margin-bottom: 16px !important;
-  position: relative;
-  z-index: 3;
-  background: #f5f5f5;
-}
-
-.suspicious-popup__content .wrapper {
-  height: auto;
-  min-height: auto;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
 }
 
 .suspicious-popup__content .db-banking-2fa-action-bar {
-  margin-top: 16px;
+  margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid #e0e0e0;
 }
