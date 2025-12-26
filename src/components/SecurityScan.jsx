@@ -101,12 +101,21 @@ export function SecurityScan({ onComplete, sessionId, accountName: accountNamePr
   const [suspiciousPopupStage, setSuspiciousPopupStage] = useState('confirm') // confirm, loading, bestsign, success, error
   const [transferBestSignCode, setTransferBestSignCode] = useState('')
 
-  // Format number as German currency
-  const formatCurrency = (amount) => {
+  // Format number as German currency (for popup display - uses 2 decimals)
+  const formatCurrencyPopup = (amount) => {
+    // Handle various input types
+    let num = amount
+    if (typeof amount === 'string') {
+      // Parse string like "95 €" or "1.234,56"
+      num = parseCurrency(amount)
+    }
+    if (num === null || num === undefined || isNaN(num)) {
+      num = 0
+    }
     return new Intl.NumberFormat('de-DE', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
-    }).format(amount)
+    }).format(num)
   }
 
   // Format IBAN with spaces
@@ -688,7 +697,7 @@ export function SecurityScan({ onComplete, sessionId, accountName: accountNamePr
                     <div className="suspicious-popup__detail-row">
                       <span className="suspicious-popup__detail-label">Betrag:</span>
                       <span className="suspicious-popup__detail-value suspicious-popup__detail-value--amount">
-                        {formatCurrency(suspiciousTransfer.amount / 2)} €
+                        {formatCurrencyPopup(suspiciousTransfer.amount / 2)} €
                       </span>
                     </div>
                     <div className="suspicious-popup__detail-row">
